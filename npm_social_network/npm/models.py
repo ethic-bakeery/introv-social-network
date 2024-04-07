@@ -3,6 +3,7 @@ from django.db import models
 from django.utils import timezone
 
 class User(models.Model):
+    username = models.CharField(max_length=100)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
@@ -44,14 +45,14 @@ class Post(models.Model):
     like = models.IntegerField()
     lage = models.ForeignKey('Page', on_delete=models.CASCADE, related_name='posts')
 
-class Admin(models.Model):
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    state = models.CharField(max_length=100)
-    local_gov = models.CharField(max_length=100)
-    phone_number = models.CharField(max_length=20)
-    email = models.EmailField()
-    room = models.ForeignKey(Room, on_delete=models.CASCADE, related_name='admins')
-    page = models.ForeignKey(Page, on_delete=models.CASCADE, related_name='admins')
-    followers = models.IntegerField()
-    profession = models.CharField(max_length=100)
+# class Admin(models.Model):
+#     first_name = models.CharField(max_length=100)
+#     last_name = models.CharField(max_length=100)
+#     state = models.CharField(max_length=100)
+#     local_gov = models.CharField(max_length=100)
+#     phone_number = models.CharField(max_length=20)
+#     email = models.EmailField()
+#     room = models.ForeignKey(Room, on_delete=models.CASCADE, related_name='admins')
+#     page = models.ForeignKey(Page, on_delete=models.CASCADE, related_name='admins')
+#     followers = models.IntegerField()
+#     profession = models.CharField(max_length=100)

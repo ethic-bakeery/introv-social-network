@@ -1,43 +1,36 @@
-{% load static %}
-<!DOCTYPE html>
-<!---Coding By CoderGirl | www.codinglabweb.com--->
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!--<title>Login & Registration Form | CoderGirl</title>-->
-  <!---Custom CSS File--->
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-  <div class="container">
-    <div class="registration form">
-      <header>Signup</header>
-      <form action="{% url 'register' %}" method="POST">
-        {% csrf_token %}
-        <input type="text" placeholder="Enter your first name" name="first_name">
-        <input type="text" placeholder="Enter your last name" name="last_name">
-        <input type="text" placeholder="Enter your state" name="state">
-        <input type="text" placeholder="Enter your local goverment" name="local_gov">
-        <input type="text" placeholder="Enter your email" name="email">
-        <input type="text" placeholder="Enter your phone number" name="phone_number">
-        <input type="password" placeholder="Create a password" name="password1">
-        <input type="password" placeholder="Confirm your password" name="password2">
-        <input type="submit" class="button" value="Signup">
-        <center>
-          {% if error %}
-          <p style="color: red;">{{ error }}</p>
-          {% endif %}
-        </center>
-        
-      </form>
-      <div class="signup">
-        <span class="signup">Already have an account?
-          <a href="{% url 'login' %}"><label for="check">Signin</label></a>
-        </span>
-      </div>
-    </div>
-  </div>
-</body>
-</html>
+<h1>login</h1>
+<style>
+  h3{
+    color: red;
+  }
+</style>
+{% for message in messages %}
+ <h4>{{message}}</h4>
+ {% endfor %}
+
+<form action="{% url 'register' %}" method="POST">
+  {% csrf_token %}
+  <p>username:</p>
+  <input type="text" name="username">
+  <p>first name:</p>
+  <input type="text" name="first_name">
+  <p>last name:</p>
+  <input type="text" name="last_name">
+  <p>state:</p>
+  <input type="text" name="state">
+  <p>local goverment:</p>
+  <input type="text" name="local_gov">
+  <p>email:</p>
+  <input type="text" name="email">
+  <P>phone number:</P>
+  <input type="text" name="phone_number">
+  <P>password:</P>
+  <input type="password" name="password">
+  <p>Confirm password:</p>
+  <input type="password" name="password2"> <br>
+  <input type="submit" class="button" value="Signup">
+</form>
+
+<span class="signup">Already have an account?
+  <a href="{% url 'login' %}"><label for="check">Signin</label></a>
+</span>
