@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>Document</title>
+    <title>Dashboard</title>
 </head>
 <body>
-  <h3>Hello {{user.username}}! Welcome to your Dashboard</h3>
-</body>
+    <a href="{% url 'blank' %}" class="btn btn-google btn-user btn-block">
+    <h4>Dear {{ user.username }}, welcome to the site</h4><br>
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <input type="submit" value="Logout">
+    </form>
+</body> 
 </html>

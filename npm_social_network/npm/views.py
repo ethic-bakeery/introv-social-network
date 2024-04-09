@@ -44,7 +44,7 @@ def login(request):
         user = auth.authenticate(request, username=username, password=password)
         if user is not None:
             auth.login(request, user)
-            return redirect('dashboard')
+            return redirect('index')
         else:
             messages.info(request, "Invalid credentials")
             return render(request, 'npm/login.html') 
@@ -60,6 +60,21 @@ def logout(request):
 @login_required 
 def dashboard(request):
     return render(request, 'npm/dashboard.html')  
+
+def google_register(request):
+    return render(request, 'npm/google.html')
+
+def facebook_register(request):
+    return render(request, 'npm/facebook.html')
+
+def forget_password(request):
+    return render(request, 'npm/forget_password.html')
+
+def blank(request):
+    return render(request, 'npm/blank.html')
+
+def not_found(request):
+    return render(request, 'npm/404.html')
 
 # def register(request):
 #     if request.method == 'POST':
