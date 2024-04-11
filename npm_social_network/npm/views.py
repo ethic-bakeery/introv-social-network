@@ -6,7 +6,6 @@ from django.contrib.auth.models import User,auth
 from django.contrib import messages
 from django.http import HttpResponse
 
-
 def index(request):
     return render(request, 'npm/index.html')
 
@@ -33,7 +32,6 @@ def register(request):
             messages.info(request, "Passwords do not match")
             return redirect('register')
     else:
-        messages.info(request, "There is a problem is sign up")
         return render(request, 'npm/register.html')
 
 def login(request):
@@ -51,21 +49,23 @@ def login(request):
     else:
         return render(request, 'npm/login.html') 
     
-@login_required
+
 def logout(request):
     auth.logout(request)
     return redirect('login')
     
 
-@login_required 
-def dashboard(request):
-    return render(request, 'npm/dashboard.html')  
+def components(request):
+    return render(request, 'npm/components.html')  
 
-def google_register(request):
-    return render(request, 'npm/google.html')
+def friends(request):
+    return render(request, 'npm/friends.html')
 
-def facebook_register(request):
-    return render(request, 'npm/facebook.html')
+def events(request):
+    return render(request, 'npm/events.html')
+
+def groups(request):
+    return render(request, 'npm/groups.html')
 
 def forget_password(request):
     return render(request, 'npm/forget_password.html')
@@ -73,8 +73,31 @@ def forget_password(request):
 def blank(request):
     return render(request, 'npm/blank.html')
 
-def not_found(request):
-    return render(request, 'npm/404.html')
+def marketplace(request):
+    return render(request, 'npm/marketplace.html')
+def messages(request):
+    return render(request, 'npm/messages.html')
+def modal(request):
+    return render(request, 'npm/model.html')
+def newsfeed(request):
+    return render(request, 'npm/newsfeed-2.html')
+def profile(request):
+    return render(request, 'npm/profile.html')
+def set_billing(request):
+    return render(request, 'npm/settings-billing-method.html')
+def set_fingerprint(request):
+    return render(request, 'npm/settings-fingerprint.html')
+def set_location(request):
+    return render(request, 'npm/settings-location.html')
+def set_contact(request):
+    return render(request, 'npm/settings-contact.html')
+def set_password(request):
+    return render(request, 'npm/settings-password.html')
+def settings(request):
+    return render(request, 'npm/settings.html')
+def widgets(request):
+    return render(request, 'npm/widgets.html')
+
 
 # def register(request):
 #     if request.method == 'POST':
